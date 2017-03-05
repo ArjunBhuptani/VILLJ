@@ -51,13 +51,46 @@ contract Villj {
 	Vote[] public votes;
 
 
-	// event Transfer(address indexed _from, address indexed _to, uint256 _value);
-
 	function Villj() {
 		problemCount = 0;
 		solutionCount = 0;
 		weiRaised = 0;
 	}
+
+	function getProblem(uint _problemId) returns(string, string, string, string, uint, uint, uint) {
+		if (_problemId >= 0 && _problemId < problems.length) {
+			return (
+				problems[_problemId].name,
+				problems[_problemId].description,
+				problems[_problemId].imgUrl,
+				// problems[_problemId].userName,
+				problems[_problemId].category,
+				problems[_problemId].startTime,
+				problems[_problemId].weiRaised,
+				problems[_problemId].solutionCount
+			);
+		} else {
+			throw;
+		}
+	}
+
+	// function getProblemDeets(uint _problemId) returns(uint, string, string, string, string, string, uint, uint, uint) {
+	// 	if (_problemId >= 0 && _problemId < problems.length) {
+	// 		return (
+	// 			problems[_problemId].id,
+	// 			problems[_problemId].name,
+	// 			problems[_problemId].description,
+	// 			problems[_problemId].imgUrl,
+	// 			problems[_problemId].userName,
+	// 			problems[_problemId].category,
+	// 			problems[_problemId].startTime,
+	// 			problems[_problemId].weiRaised,
+	// 			problems[_problemId].solutionCount
+	// 		);
+	// 	} else {
+	// 		throw;
+	// 	}
+	// }
 
 	function addProblem(string _name, string _description, string _imgUrl, string _userName, string _category) payable returns(uint) {
 		problemCount++;
