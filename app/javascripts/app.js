@@ -46,13 +46,12 @@ window.App = {
       account = accounts[0];
 
       self.refreshBalance();
-      self.getProblem(0);
     });
   },
 
   setStatus: function(message) {
     var status = document.getElementById("status");
-    status.innerHTML = message;
+    //status.innerHTML = message;
   },
 
   getProblem: function(problemId) {
@@ -86,11 +85,29 @@ window.App = {
     });
   },
 
+  castVote: function() {
+    var self = this;
+
+    var amount = parseInt(document.getElementById("form4").value);
+    console.log(amount);
+    
+    var meta;
+    Villj.deployed().then(function(instance) {
+      meta = instance
+      return meta.castVote(0, 0, 0, {from: account});
+    }).then(function(results) {
+      console.log(results)
+    }).catch(function(e) {
+      console.log(e);
+      self.setStatus("Error sending coin; see log.");
+    });
+  },
+
   sendCoin: function() {
     var self = this;
 
-    var amount = parseInt(document.getElementById("amount").value);
-    var receiver = document.getElementById("receiver").value;
+    var amount = 10;
+    var receiver = "0xc8A566A3197d38713e5E7443c65cAe418E22E65e";
 
     this.setStatus("Initiating transaction... (please wait)");
 
@@ -123,22 +140,6 @@ window.App = {
     }).then(function() {
       self.setStatus("Transaction complete!");
       self.refreshBalance();
-    }).catch(function(e) {
-      console.log(e);
-      self.setStatus("Error sending coin; see log.");
-    });
-  },
-
-
-  castVote: function(value) {
-    var self = this;
-    
-    var meta;
-    Villj.deployed().then(function(instance) {
-      meta = instance
-      return meta.castVote(0, 0, {from: account, value: value});
-    }).then(function(results) {
-      console.log(results)
     }).catch(function(e) {
       console.log(e);
       self.setStatus("Error sending coin; see log.");
