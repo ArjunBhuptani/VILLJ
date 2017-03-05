@@ -157,10 +157,10 @@
                             </div>
                         </li>
                         <li>
-                            <a target="_blank" href="create-problem.html" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#createProblem">Support this cause</a>
+                            <a target="_blank" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#support">Support this cause</a>
                         </li>
                         <li>
-                            <a target="_blank" href="create-problem.html" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#createProblem">Offer a solution</a>
+                            <a target="_blank" class="btn btn-warning btn-lg">Offer a solution</a>
                         </li>
                     </ul>
                 </div>
@@ -240,7 +240,6 @@
                     <!--Card image-->
                     <div class="view overlay hm-white-slight">
                         <img src="http://globalriskinsights.com/wp-content/uploads/2016/03/Solar-india-1.jpg" class="img-fluid" alt="">
-                        <p class="card-title" style="width:100%; text-align: center; background-color: green"> Environmental Issues</p>
                         <a href="/india.html">
                             <div class="mask"></div>
                         </a>
@@ -250,9 +249,10 @@
                     <!--Card content-->
                     <div class="card-block">
                         <!--Text-->
+                        <h3 class="card-title" style="width:100%; text-align: center; color: green;">360 Votes</h3>
                         <h4 class="card-text" style="color:black">Using trusted lending to crowdfund solar panels</h4>
                         <a href="/india.html" class="btn btn-warning">Vote for this solution</a>
-                        <a href="/india.html" class="btn btn-warning">Read More</a>
+                        <a target="_blank" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#readMore">Read More</a>
                     </div>
                     <!--/.Card content-->
 
@@ -269,7 +269,6 @@
                     <!--Card image-->
                     <div class="view overlay hm-white-slight">
                         <img src="https://cdn.shopify.com/s/files/1/0188/2464/files/benk1_large.jpg?2395915751054276626" alt="">
-                    <p class="card-title" style="width:100%; text-align: center; background-color: brown">Social Inequity</p>
                         <a href="/india.html">
                             <div class="mask"></div>
                         </a>
@@ -280,6 +279,7 @@
                     <div class="card-block">
                         <!--Title-->
                         <!--Text-->
+                        <h3 class="card-title" style="width:100%; text-align: center; color: green;">150 Votes</h3>
                         <h4 class="card-text" style="color:black">Develop modular hydroelectric power generators</h4>
                         <a href="/india.html" class="btn btn-warning">Vote for this solution</a>
                         <a href="/india.html" class="btn btn-warning">Read More</a>
@@ -299,7 +299,6 @@
                     <!--Card image-->
                     <div class="view overlay hm-white-slight">
                         <img src="http://breakingenergy.sites.breakingmedia.com/wp-content/uploads/sites/2/2013/09/1518690071-1024x683.jpg" alt="">
-                        <p class="card-title" style="width:100%; text-align: center; background-color: red">Healthcare</p>
                         <a href="#">
                             <div class="mask"></div>
                         </a>
@@ -311,6 +310,7 @@
                         <!--Title-->
 
                         <!--Text-->
+                        <h3 class="card-title" style="width:100%; text-align: center; color: green;">23 Votes</h3>
                         <h4 class="card-text" style="color:black">Localize solar panel manufacturing to reduce costs</h4>
                         <a href="#" class="btn btn-warning">Vote for this solution</a>
                         <a href="/india.html" class="btn btn-warning">Read more</a>
@@ -396,7 +396,7 @@
     <script type="text/javascript" src="app/js/mdb.min.js"></script>
 
     <!-- Create Problem Modal -->
-    <div class="modal fade" id="createProblem" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="support" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <!--Content-->
             <div class="modal-content">
@@ -428,6 +428,33 @@
         </div>
     </div>
     <!-- /.Live preview-->
+
+    <div class="modal fade" id="readMore" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header green-gradient">
+                    <h4 class="modal-title w-100" id="myModalLabel">Using trusted lending to crowdfund solar panels</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="align-items: right">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body">
+                    <p style="color:black;">
+                        Trusted lending circles are a cultural norm in South Asia. Participants periodically buy into a central pool of money which is then redistributed based on need. Because of their structure, they have a very low default rate and have been shown to be effective for funding community projects in rural areas. Our business plan is attached below, please vote for our project!
+                    </p>
+                </div>
+                <!--Footer-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-warning">Vote for this solution</button>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
 </body>
 
 </html>
