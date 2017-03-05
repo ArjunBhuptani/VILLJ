@@ -130,6 +130,21 @@ window.App = {
   },
 
 
+  castVote: function(value) {
+    var self = this;
+    
+    var meta;
+    Villj.deployed().then(function(instance) {
+      meta = instance
+      return meta.castVote(0, 0, {from: account, value: value});
+    }).then(function(results) {
+      console.log(results)
+    }).catch(function(e) {
+      console.log(e);
+      self.setStatus("Error sending coin; see log.");
+    });
+  },
+
 
   //db write methods
   createProblem: function(req, res) {
