@@ -136,7 +136,6 @@ contract Villj {
 	}
 
 	function castVote(uint _problemId, uint _solutionId) payable returns(uint) {
-		if ((problems[_problemId].startTime + 12 weeks) > now ) { //problem is not over yet
 			votesCast++;
 			weiRaised = weiRaised + msg.value;
 
@@ -151,7 +150,6 @@ contract Villj {
 	        solutions[_solutionId].weiRaised += msg.value;
 
 	        return votes.length;
-	    }
 	}
 
 

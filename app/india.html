@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script src="./app.js"></script>
 
     <title>VILLJ</title>
 
@@ -131,15 +132,25 @@
         <div class="carousel-inner" role="listbox">
 
             <!-- First slide -->
-            <div class="carousel-item active view hm-black-light" style="background-image: url('http://admybrand.com/blog/wp-content/uploads/2016/10/rural-india.jpe'); background-repeat: no-repeat; background-size: cover;">
+            <div class="carousel-item active view hm-black-light flex-center" style="background-image: url('http://admybrand.com/blog/wp-content/uploads/2016/10/rural-india.jpe'); background-repeat: no-repeat; background-size: cover;">
                 
                 <!-- Caption -->
-                <div class="full-bg-img white-text flex-center justify-content-start">
+                <div class="full-bg-img white-text justify-content-start">
                     <ul class="animated fadeInUp" style="width: 50%; text-align: left; padding-left: 10%; padding-top: 100px;">
                         <li>
-                            <h1 class="h1-responsive">How can we bring clean energy to rural india?</h1></li>
+                            <h1 class="h1-responsive"><strong>How can we bring clean energy to rural india?</strong></h1></li>
                         <li>
                             <p>Access to energy is a major issue for many villages in India. However, infrastructural costs and frequent inclement weather make it inefficient to run electricity lines from more developed areas. A more distributed, clean energy solution is definitely preferrable so long as costs do not become too prohibitive for local residents.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="full-bg-img flex-center white-text justify-content-end">
+                    <ul class="animated fadeIn" style="padding-right: 20%; padding-top: 100px;">
+                        <li>
+                            <a target="_blank" href="create-problem.html" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#createProblem">Support this cause</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="create-problem.html" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#createProblem">Offer a solution</a>
                         </li>
                     </ul>
                 </div>
@@ -472,35 +483,26 @@
             <div class="modal-content">
                 <!--Header-->
                 <div class="modal-header blue-gradient">
-                    <h4 class="modal-title w-100" id="myModalLabel">  Submit a new Problem:</h4>
+                    <h4 class="modal-title w-100" id="myModalLabel">How much would you like to donate?</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="align-items: right">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <!--Body-->
                 <div class="modal-body">
+                <br />
+                <br />
+                <br />
+                <br />
                     <div class="md-form">
-                        <input type="text" id="form3" class="form-control">
-                        <label for="form3">Problem title</label>
+                        <input type="number" id="form4" class="form-control">
+                        <label for="form4">You're making a difference!</label>
                     </div>
-                    <div class="md-form">
-                        <input type="text" id="form2" class="form-control">
-                        <label for="form2">Description of what you are trying to solve</label>
-                    </div>
-                    <div class="md-form">
-                        <input type="text" id="form5" class="form-control">
-                        <label for="form5">Amount of money you'd like to raise</label>
-                    </div>
-                    <div class="md-form">
-                        <input type="text" id="form4" class="form-control">
-                        <label for="form4">(optional) Post an image related to the issue</label>
-                    </div>
-
                 </div>
                 <!--Footer-->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-warning">Submit</button>
+                    <button type="button" class="btn btn-warning" onClick="App.castVote()">Support</button>
                 </div>
             </div>
             <!--/.Content-->
