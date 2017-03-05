@@ -9,9 +9,9 @@ import { default as contract } from 'truffle-contract'
 import metacoin_artifacts from '../../build/contracts/MetaCoin.json'
 
 //db modules
-var sequelize = require('../../config/sequelize.js');
-var Problems = sequelize.import('../models/problems.model.js');
-var Solutions = sequelize.import('../models/solutions.model.js');
+// var sequelize = require('../../config/sequelize.js');
+// var Problems = sequelize.import('../models/problems.model.js');
+// var Solutions = sequelize.import('../models/solutions.model.js');
 
 // MetaCoin is our usable abstraction, which we'll use through the code below.
 var MetaCoin = contract(metacoin_artifacts);

@@ -3,24 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.9.3"
-  },
-  "dependencies": {
-    "pg": "^6.1.2",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "lint": "eslint ./",
-    "dev": "webpack-dev-server"
-  },
-  "author": "Arjun Bhuptani and Zane Witherspoon",
-  "license": "MIT",
-  "devDependencies": {
     "babel-cli": "^6.22.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^6.1.2",
@@ -44,5 +26,23 @@
     "web3": "^0.18.2",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0"
-  }
+  },
+  "dependencies": {
+    "dgram": "^1.0.1",
+    "fs": "0.0.1-security",
+    "pg": "^6.1.2",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "sequelize": "^3.30.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint": "eslint ./",
+    "dev": "webpack-dev-server"
+  },
+  "author": "Arjun Bhuptani and Zane Witherspoon",
+  "license": "MIT"
 }
