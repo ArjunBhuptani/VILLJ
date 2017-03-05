@@ -8,12 +8,15 @@ import { default as contract } from 'truffle-contract'
 // Import our contract artifacts and turn them into usable abstractions.
 import metacoin_artifacts from '../../build/contracts/MetaCoin.json'
 
+//db modules
+var sequelize = require('../../config/sequelize.js');
+var Problems = sequelize.import('../models/problems.model.js');
+var Solutions = sequelize.import('../models/solutions.model.js');
+
 // MetaCoin is our usable abstraction, which we'll use through the code below.
 var MetaCoin = contract(metacoin_artifacts);
 
-// The following code is simple to show off interacting with your contracts.
-// As your needs grow you will likely need to change its form and structure.
-// For application bootstrapping, check out window.addEventListener below.
+
 var accounts;
 var account;
 
@@ -83,7 +86,44 @@ window.App = {
       console.log(e);
       self.setStatus("Error sending coin; see log.");
     });
+  },
+
+  //db write methods
+  createProblem: function(req, res) {
+    var data = req.body;
+    Problems.build({
+      name: data.name,
+      details: data.details,
+      money_raised: data.money_raised,
+      contributors: data.contributors,
+      image: data.image
+    }).save().then(function(promise){
+      console.log("Created new problem: " + data.name);
+      res.send({"message": "Created new problem: " + data.name});
+    }).catch(function(err){
+      console.log("Error saving problem to db");
+      res.send({"error": error});
+    });
+  },
+
+  createSolution: function(req, res) {
+    var data = req.body;
+    Solutions.build({
+      name: data.name,
+      details: data.details,
+      votes: data.votes,
+      image: data.image,
+      user_name: data.user_name,
+      wallet_address: wallet_address
+    }).save().then(function(promise){
+      console.log("Created new solution: " + data.name);
+      res.send({"message": "Created new solution: " + data.name});
+    }).catch(function(err){
+      console.log("Error saving solution to db");
+      res.send({"error": error})
+    });
   }
+
 };
 
 window.addEventListener('load', function() {
