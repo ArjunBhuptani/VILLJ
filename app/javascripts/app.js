@@ -7,6 +7,7 @@ import { default as contract } from 'truffle-contract'
 
 // Import our contract artifacts and turn them into usable abstractions.
 import metacoin_artifacts from '../../build/contracts/MetaCoin.json'
+import villj_artifacts from '../../build/contracts/Villj.json'
 
 //db modules
 // var sequelize = require('../../config/sequelize.js');
@@ -15,6 +16,7 @@ import metacoin_artifacts from '../../build/contracts/MetaCoin.json'
 
 // MetaCoin is our usable abstraction, which we'll use through the code below.
 var MetaCoin = contract(metacoin_artifacts);
+var Villj = contract(villj_artifacts);
 
 
 var accounts;
@@ -26,6 +28,7 @@ window.App = {
 
     // Bootstrap the MetaCoin abstraction for Use.
     MetaCoin.setProvider(web3.currentProvider);
+    Villj.setProvider(web3.currentProvider);
 
     // Get the initial account balance so it can be displayed.
     web3.eth.getAccounts(function(err, accs) {
@@ -43,12 +46,28 @@ window.App = {
       account = accounts[0];
 
       self.refreshBalance();
+      self.getProblem(0);
     });
   },
 
   setStatus: function(message) {
     var status = document.getElementById("status");
     status.innerHTML = message;
+  },
+
+  getProblem: function(problemId) {
+    var self = this;
+
+    var meta;
+    Villj.deployed().then(function(instance) {
+      meta = instance;
+      return meta.getProblem.call(problemId, {from: account});
+    }).then(function(problem) {
+      console.log(problem)
+    }).catch(function(e) {
+      console.log(e);
+      self.setStatus("Error getting balance; see log.");
+    });
   },
 
   refreshBalance: function() {
@@ -87,6 +106,30 @@ window.App = {
       self.setStatus("Error sending coin; see log.");
     });
   },
+
+  makeProblem: function() {
+    console.log('make problem');
+
+    var self = this;
+
+    this.setStatus("Initiating transaction... (please wait)");
+    
+    var meta;
+    Villj.deployed().then(function(instance) {
+      meta = instance
+      return meta.addProblem("world hunger", 
+          "guys, we really gotta do something about all the starving people", 
+          "google.com", "john doe", "human issues", {from: account});
+    }).then(function() {
+      self.setStatus("Transaction complete!");
+      self.refreshBalance();
+    }).catch(function(e) {
+      console.log(e);
+      self.setStatus("Error sending coin; see log.");
+    });
+  },
+
+
 
   //db write methods
   createProblem: function(req, res) {
