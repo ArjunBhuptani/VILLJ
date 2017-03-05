@@ -63,7 +63,6 @@ contract Villj {
 				problems[_problemId].name,
 				problems[_problemId].description,
 				problems[_problemId].imgUrl,
-				// problems[_problemId].userName,
 				problems[_problemId].category,
 				problems[_problemId].startTime,
 				problems[_problemId].weiRaised,
@@ -74,23 +73,24 @@ contract Villj {
 		}
 	}
 
-	// function getProblemDeets(uint _problemId) returns(uint, string, string, string, string, string, uint, uint, uint) {
-	// 	if (_problemId >= 0 && _problemId < problems.length) {
-	// 		return (
-	// 			problems[_problemId].id,
-	// 			problems[_problemId].name,
-	// 			problems[_problemId].description,
-	// 			problems[_problemId].imgUrl,
-	// 			problems[_problemId].userName,
-	// 			problems[_problemId].category,
-	// 			problems[_problemId].startTime,
-	// 			problems[_problemId].weiRaised,
-	// 			problems[_problemId].solutionCount
-	// 		);
-	// 	} else {
-	// 		throw;
-	// 	}
-	// }
+	function getSolution(uint _problemId, uint _solutionId) returns(string, string, string, string, string, uint) {
+		if (_problemId >= 0 && _problemId < problems.length) {
+			if (solutions[_solutionId].problemId == _problemId) {
+				return (
+					solutions[_solutionId].name,
+					solutions[_solutionId].description,
+					solutions[_solutionId].imgUrl,
+					solutions[_solutionId].userName,
+					solutions[_solutionId].fbId,
+					solutions[_solutionId].weiRaised
+				);
+			} else {
+				throw;
+			}
+		} else {
+			throw;
+		}
+	}
 
 	function addProblem(string _name, string _description, string _imgUrl, string _userName, string _category) payable returns(uint) {
 		problemCount++;
