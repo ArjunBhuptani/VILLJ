@@ -28,6 +28,7 @@
     "webpack-dev-server": "^2.3.0"
   },
   "dependencies": {
+    "bignumber.js": "^4.0.0",
     "dgram": "^1.0.1",
     "fs": "0.0.1-security",
     "pg": "^6.1.2",
